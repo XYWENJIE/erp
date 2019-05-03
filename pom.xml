@@ -12,6 +12,7 @@
 		<spring.version>4.3.18.RELEASE</spring.version>
 		<spring.security.version>4.2.7.RELEASE</spring.security.version>
 		<log4j.version>2.11.0</log4j.version>
+		<jackson.version>2.9.8</jackson.version>
 	</properties>
 	
 	<build>
@@ -288,17 +289,17 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
-			<version>2.9.5</version>
+			<version>${jackson.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.9.5</version>
+			<version>${jackson.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-annotations</artifactId>
-			<version>2.9.5</version>
+			<version>${jackson.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
