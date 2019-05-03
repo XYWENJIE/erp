@@ -1,0 +1,90 @@
+-------------------------------------------------------------------------------
+Test set: org.benjamin.erp.test.BorrowerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 9.35 sec <<< FAILURE!
+tenderBorrower(org.benjamin.erp.test.BorrowerTest)  Time elapsed: 2.451 sec  <<< ERROR!
+org.apache.wicket.WicketRuntimeException: The component(s) below failed to render. Possible reasons could be that:
+	1) you have added a component in code but forgot to reference it in the markup (thus the component will never be rendered),
+	2) if your components were added in a parent container then make sure the markup for the child container includes them in <wicket:extend>.
+
+1. [DebugBar [Component id = debugBar, page = com.benjamin.erp.page.ReleaseBorrowerPage, path = debugBar, type = org.apache.wicket.devutils.debugbar.DebugBar, isVisible = true, isVersioned = true], children =  [Component id = logo][WebMarkupContainer [Component id = content]]]
+2. [Component id = logo, page = com.benjamin.erp.page.ReleaseBorrowerPage, path = debugBar:logo, type = org.apache.wicket.markup.html.image.Image, isVisible = true, isVersioned = true]
+3. [WebMarkupContainer [Component id = content, page = com.benjamin.erp.page.ReleaseBorrowerPage, path = debugBar:content, type = org.apache.wicket.markup.html.WebMarkupContainer, isVisible = true, isVersioned = true], children =  [ListView [Component id = contributors]][Component id = removeImg]]
+4. [ListView [Component id = contributors, page = com.benjamin.erp.page.ReleaseBorrowerPage, path = debugBar:content:contributors, type = org.apache.wicket.markup.html.list.ListView, isVisible = true, isVersioned = true], children =  [ListItem [Component id = 0]][ListItem [Component id = 1]][ListItem [Component id = 2]][ListItem [Component id = 3]]]
+5. [ListItem [Component id = 0, page = com.benjamin.erp.page.ReleaseBorrowerPage, path = debugBar:content:contributors:0, type = org.apache.wicket.markup.html.list.ListItem, isVisible = true, isVersioned = true], children =  [Component id = contrib]]
+6. [Component id = contrib, page = com.benjamin.erp.page.ReleaseBorrowerPage, path = debugBar:content:contributors:0:contrib, type = org.apache.wicket.markup.html.basic.Label, isVisible = true, isVersioned = true]
+7. [ListItem [Component id = 1, page = com.benjamin.erp.page.ReleaseBorrowerPage, path = debugBar:content:contributors:1, type = org.apache.wicket.markup.html.list.ListItem, isVisible = true, isVersioned = true], children =  [InspectorDebugPanel [Component id = contrib]]]
+8. [InspectorDebugPanel [Component id = contrib, page = com.benjamin.erp.page.ReleaseBorrowerPage, path = debugBar:content:contributors:1:contrib, type = org.apache.wicket.devutils.debugbar.InspectorDebugPanel, isVisible = true, isVersioned = true], children =  [BookmarkablePageLink [Component id = link]]]
+9. [BookmarkablePageLink [Component id = link, page = com.benjamin.erp.page.ReleaseBorrowerPage, path = debugBar:content:contributors:1:contrib:link, type = org.apache.wicket.markup.html.link.BookmarkablePageLink, isVisible = true, isVersioned = true], children =  [Component id = img][Component id = data]]
+10. [Component id = img, page = com.benjamin.erp.page.ReleaseBorrowerPage, path = debugBar:content:contributors:1:contrib:link:img, type = org.apache.wicket.markup.html.image.Image, isVisible = true, isVersioned = true]
+11. [Component id = data, page = com.benjamin.erp.page.ReleaseBorrowerPage, path = debugBar:content:contributors:1:contrib:link:data, type = org.apache.wicket.markup.html.basic.Label, isVisible = true, isVersioned = true]
+12. [ListItem [Component id = 2, page = com.benjamin.erp.page.ReleaseBorrowerPage, path = debugBar:content:contributors:2, type = org.apache.wicket.markup.html.list.ListItem, isVisible = true, isVersioned = true], children =  [SessionSizeDebugPanel [Component id = contrib]]]
+13. [SessionSizeDebugPanel [Component id = contrib, page = com.benjamin.erp.page.ReleaseBorrowerPage, path = debugBar:content:contributors:2:contrib, type = org.apache.wicket.devutils.debugbar.SessionSizeDebugPanel, isVisible = true, isVersioned = true], children =  [BookmarkablePageLink [Component id = link]]]
+14. [BookmarkablePageLink [Component id = link, page = com.benjamin.erp.page.ReleaseBorrowerPage, path = debugBar:content:contributors:2:contrib:link, type = org.apache.wicket.markup.html.link.BookmarkablePageLink, isVisible = true, isVersioned = true], children =  [Component id = img][Component id = data]]
+15. [Component id = img, page = com.benjamin.erp.page.ReleaseBorrowerPage, path = debugBar:content:contributors:2:contrib:link:img, type = org.apache.wicket.markup.html.image.Image, isVisible = true, isVersioned = true]
+16. [Component id = data, page = com.benjamin.erp.page.ReleaseBorrowerPage, path = debugBar:content:contributors:2:contrib:link:data, type = org.apache.wicket.markup.html.basic.Label, isVisible = true, isVersioned = true]
+17. [ListItem [Component id = 3, page = com.benjamin.erp.page.ReleaseBorrowerPage, path = debugBar:content:contributors:3, type = org.apache.wicket.markup.html.list.ListItem, isVisible = true, isVersioned = true], children =  [PageSizeDebugPanel [Component id = contrib]]]
+18. [PageSizeDebugPanel [Component id = contrib, page = com.benjamin.erp.page.ReleaseBorrowerPage, path = debugBar:content:contributors:3:contrib, type = org.apache.wicket.devutils.debugbar.PageSizeDebugPanel, isVisible = true, isVersioned = true], children =  [BookmarkablePageLink [Component id = link]]]
+19. [BookmarkablePageLink [Component id = link, page = com.benjamin.erp.page.ReleaseBorrowerPage, path = debugBar:content:contributors:3:contrib:link, type = org.apache.wicket.markup.html.link.BookmarkablePageLink, isVisible = true, isVersioned = true], children =  [Component id = img][Component id = data]]
+20. [Component id = img, page = com.benjamin.erp.page.ReleaseBorrowerPage, path = debugBar:content:contributors:3:contrib:link:img, type = org.apache.wicket.markup.html.image.Image, isVisible = true, isVersioned = true]
+21. [Component id = data, page = com.benjamin.erp.page.ReleaseBorrowerPage, path = debugBar:content:contributors:3:contrib:link:data, type = org.apache.wicket.markup.html.basic.Label, isVisible = true, isVersioned = true]
+22. [Component id = removeImg, page = com.benjamin.erp.page.ReleaseBorrowerPage, path = debugBar:content:removeImg, type = org.apache.wicket.markup.html.image.Image, isVisible = true, isVersioned = true]
+
+	at org.apache.wicket.Page.checkRendering(Page.java:663)
+	at org.apache.wicket.Page.onAfterRender(Page.java:806)
+	at org.apache.wicket.markup.html.WebPage.onAfterRender(WebPage.java:209)
+	at org.apache.wicket.Component.afterRender(Component.java:897)
+	at org.apache.wicket.Component.render(Component.java:2232)
+	at org.apache.wicket.Page.renderPage(Page.java:998)
+	at org.apache.wicket.request.handler.render.WebPageRenderer.renderPage(WebPageRenderer.java:124)
+	at org.apache.wicket.request.handler.render.WebPageRenderer.respond(WebPageRenderer.java:236)
+	at org.apache.wicket.util.tester.BaseWicketTester$LastPageRecordingPageRendererProvider$1.respond(BaseWicketTester.java:2833)
+	at org.apache.wicket.core.request.handler.RenderPageRequestHandler.respond(RenderPageRequestHandler.java:202)
+	at org.apache.wicket.request.cycle.RequestCycle$HandlerExecutor.respond(RequestCycle.java:912)
+	at org.apache.wicket.request.RequestHandlerExecutor.execute(RequestHandlerExecutor.java:65)
+	at org.apache.wicket.request.cycle.RequestCycle.execute(RequestCycle.java:283)
+	at org.apache.wicket.request.cycle.RequestCycle.processRequest(RequestCycle.java:253)
+	at org.apache.wicket.request.cycle.RequestCycle.processRequestAndDetach(RequestCycle.java:221)
+	at org.apache.wicket.util.tester.BaseWicketTester.processRequest(BaseWicketTester.java:713)
+	at org.apache.wicket.util.tester.BaseWicketTester.processRequest(BaseWicketTester.java:652)
+	at org.apache.wicket.util.tester.BaseWicketTester.processRequest(BaseWicketTester.java:624)
+	at org.apache.wicket.util.tester.BaseWicketTester.startPage(BaseWicketTester.java:1278)
+	at org.apache.wicket.util.tester.BaseWicketTester.startPage(BaseWicketTester.java:1251)
+	at org.benjamin.erp.test.BorrowerTest.tenderBorrower(BorrowerTest.java:42)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:252)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+

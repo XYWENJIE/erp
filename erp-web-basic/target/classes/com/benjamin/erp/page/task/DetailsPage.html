@@ -1,0 +1,68 @@
+<html xmlns:wicket="http://wicket.apache.org">
+
+<body>
+    <wicket:extend>
+    	<div class="row">
+    		<div class="col-md-9">
+    			<div class="box">
+            <form wicket:id="taskDetailsForm">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-6">
+
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <label class="label-control">审核意见</label>
+                            <div>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <hr>
+                        <div wicket:id="formKey">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">确认</button>
+                </div>
+            </form>
+        </div>
+    		</div>
+    		<div class="col-md-3">
+    			<div class="box">
+    				<div class="box-body">
+                        <div class="direct-chat-messages" wicket:id="commentsWebContainer">
+                            <div class="direct-chat-msg" wicket:id="commentList">
+                                <div class="direct-chat-info clearfix">
+                                	<span class="direct-chat-name pull-left" wicket:id="username">Alexander Pierce</span>
+                                	<span class="direct-chat-timestamp pull-right" wicket:id="time">23 Jan 2:00</span>
+                                </div>
+                                <img class="direct-chat-img" src="">
+                                <div class="direct-chat-text" wicket:id="message">
+                                	Is this template really
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                    	<form wicket:id="commentForm">
+                    	<div class="input-group">
+                    		<input type="text" wicket:id="message" name="message" placeholder="Type Message ..." class="form-control">
+                    		<span class="input-group-btn">
+                    			<button type="button" wicket:id="submitMessage" class="btn btn-danger btn-flat">Send</button>
+                    		</span>
+                    	</div>
+                    	</form>
+                    </div>
+    			</div>
+    		</div>
+    	</div>
+        
+    </wicket:extend>
+</body>
+
+</html>
