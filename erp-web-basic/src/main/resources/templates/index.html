@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="" th:href="@{/webjars/bootstrap/css/bootstrap.css}">
+<link rel="stylesheet" type="text/css" href="" th:href="@{/webjars/font-awesome/css/font-awesome.css}">
+<link rel="stylesheet" type="text/css" media="all" href="" th:href="@{/css/AdminLTE.css}">
+<script src="webjarsjs" th:src="@{/webjarsjs}"></script>
+
+<script data-main="js/app" src="" th:src="@{/webjars/requirejs/require.min.js}"></script>
+<script src="" th:src="@{/webajars/jquery/jquery.js}"></script>
+<script src="" th:src="@{/webjars/bootstrap/js/bootstrap.js}"></script>
+<script src="" th:src="@{/js/adminlte.js}"></script>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <div></div>
+    <div class="wrapper">
+        <header class="main-header"></header>
+        <aside class="main-sidebar">
+            <section class="sidebar">
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="" th:src="@{/dist/img/user2-160x160.jpg}" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p>Alexander Pierce</p>
+                    <a href=""><i class="fa fa-circle text-success"></i>Online</a>
+                </div>
+            </div>
+            <form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                        <button type="submit" name="search" class="btn btn-flat">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </from>
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class="header">MAIN NAVIGATION</li>
+                <li class="treeview" th:each="sidebarDataList: ${sidebarDataLists}">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span th:utext="${sidebarDataList.name}"></span>
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li wicket:id="dataItems"><a href="#" wicket:id="hrefLink"><i class="fa fa-circle-o"></i><span wicket:id="itemName"></span></a></li>
+                    </ul>
+                </li>
+            </ul>
+            </section>
+        </aside>
+        <div class="content-wrapper">
+            <section class="content-header">
+				<h1><span wicket:id="titleName"></span><small>Version 2.0</small>
+				</h1>
+				<ol class="breadcrumb" wicket:id="breadCrumbBar">
+					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+					<li class="active">Dashboard</li>
+				</ol>
+			</section>
+			<section class="content">
+				<wicket:child/>
+			</section>
+        </div>
+        <footer class="main-footer">
+			<div class="pull-right hidden-xs">
+				<b>Version</b>2.4.0
+			</div>
+			<strong>
+				Copyright © 2014-2016 
+			</strong>
+		</footer>
+    </div>
+</body>
+</html>

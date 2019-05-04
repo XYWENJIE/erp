@@ -27,6 +27,9 @@ public class BorrowerInfo implements Serializable {
     
     @Column(name = "total_loan_amount")
     private BigDecimal totalLoanAmount;
+
+    @Column(name = "already_financed_amount")
+    private BigDecimal alreadyFinancedAmount;
     
     @Version
     private Long version;
@@ -69,6 +72,14 @@ public class BorrowerInfo implements Serializable {
 
 	public void setCreateUserInfo(UserInfo createUserInfo) {
 		this.createUserInfo = createUserInfo;
+	}
+
+	public BigDecimal getAlreadyFinancedAmount() {
+		return alreadyFinancedAmount;
+	}
+
+	public void setAlreadyFinancedAmount(BigDecimal alreadyFinancedAmount) {
+		this.alreadyFinancedAmount = alreadyFinancedAmount;
 	}
 
 	public Long getVersion() {

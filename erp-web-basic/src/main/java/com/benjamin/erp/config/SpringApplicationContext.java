@@ -130,10 +130,10 @@ public class SpringApplicationContext {
 		return manager;
 	}
 	
-	@Bean
-	public ErpWebApplication erpWebApplication(){
-		return new ErpWebApplication();
-	}
+//	@Bean
+//	public ErpWebApplication erpWebApplication(){
+//		return new ErpWebApplication();
+//	}
 	
 	// Activiti流程功能
 	@Bean
@@ -143,7 +143,7 @@ public class SpringApplicationContext {
 		configuration.setTransactionManager(this.transactionManager());
 		configuration.setJobExecutorActivate(false);
 		//configuration.setAsyncExecutorActivate(true);
-		configuration.setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_CREATE_DROP);
+		configuration.setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE);
 		//configuration.setExpressionManager(new SpringExpressionManager());
 		
 		return configuration;

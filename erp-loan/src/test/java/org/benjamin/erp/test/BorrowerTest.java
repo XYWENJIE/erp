@@ -1,12 +1,14 @@
 package org.benjamin.erp.test;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
 import org.apache.wicket.util.tester.FormTester;
 import org.apache.wicket.util.tester.WicketTester;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.annotation.Rollback;
@@ -25,11 +27,10 @@ import com.benjamin.erp.page.SuccessPage;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ActiveProfiles("test")
-@Rollback
 @ContextConfiguration(classes = { SpringApplicationContext.class })
 public class BorrowerTest extends WicketBasicTest {
 
-	private Logger logger = LogManager.getLogger();
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
 	private ErpWebApplication erpWebApplication;
@@ -41,7 +42,12 @@ public class BorrowerTest extends WicketBasicTest {
 	@Before
 	public void wicketBefore() {
 		wicketTester = new WicketTester(erpWebApplication);
-		this.loginTest();
+		//this.loginTest();
+	}
+	
+	@After
+	public void wicketAfter() {
+		wicketTester.destroy();
 	}
 
 	private void loginTest() {
@@ -83,6 +89,16 @@ public class BorrowerTest extends WicketBasicTest {
 		formTester = this.wicketTester.newFormTester("taskDetailsForm");
 		formTester.select("formKey:verifyPass", 1);
 		formTester.submit();
+	}
+
+	@Test
+	public void loan_003_tenderBorrower(){
+		logger.info("开始投资服务接口");
+		wicketTester.getRequest().setMethod("POST");
+		wicketTester.executeUrl("./restfull/loan/tenderBorrower");
+		String json = wicketTester.getLastResponseAsString();
+		logger.info("返回测试值");
+		logger.info(json);
 	}
 
 }

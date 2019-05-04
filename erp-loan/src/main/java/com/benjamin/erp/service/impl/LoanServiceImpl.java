@@ -1,5 +1,6 @@
 package com.benjamin.erp.service.impl;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,9 +17,13 @@ import org.springframework.util.Assert;
 
 import com.benjamin.erp.activiti.AuditLoanTask;
 import com.benjamin.erp.domain.BorrowerInfo;
+import com.benjamin.erp.domain.BorrowerTender;
+import com.benjamin.erp.domain.LoanCapital;
 import com.benjamin.erp.domain.BorrowerInfo.Status;
 import com.benjamin.erp.domain.UserInfo;
 import com.benjamin.erp.repository.BorrowerInfoRepository;
+import com.benjamin.erp.repository.BorrowerTenderRepository;
+import com.benjamin.erp.repository.LoanCapitalRepository;
 import com.benjamin.erp.repository.UserInfoRepository;
 import com.benjamin.erp.service.LoanService;
 
@@ -40,6 +45,12 @@ public class LoanServiceImpl implements LoanService {
 	
 	@Autowired
 	private BorrowerInfoRepository borrowerInfoRepository;
+	
+	@Autowired
+	private BorrowerTenderRepository borrowerTenderRepository;
+	
+	@Autowired
+	private LoanCapitalRepository loanCapotalRepository;
 	
 	@Autowired
 	private AuditLoanTask auditLoanTask;
@@ -67,6 +78,32 @@ public class LoanServiceImpl implements LoanService {
 		BorrowerInfo borrowerInfo = execution.getVariable("borrowInfo",BorrowerInfo.class);
 		borrowerInfo.setStatus(Status.BIDDING);
 		borrowerInfoRepository.save(borrowerInfo);
+	}
+
+	@Override
+	public void tenderBorrowerRequest(String username,Integer borrowerId, BigDecimal amount) {
+		// 投资流程 先检查投资者是否有钱。
+		// 检查投资借款表的剩余资金是否合格
+		UserInfo userInfo = this.userInfoRepository.findByUsername(username);
+		LoanCapital loanCapital = this.loanCapotalRepository.findByUserInfo(userInfo);
+		if(loanCapital.getActivityAmount().compareTo(amount) != 1){
+			throw new IllegalArgumentException("当前用户没有足够的资金");
+		}
+		BorrowerInfo borrowerInfo = this.borrowerInfoRepository.findOne(borrowerId);
+		if(borrowerInfo.getAlreadyFinancedAmount().compareTo(amount) == 1){
+			throw new IllegalArgumentException("当前投资超出借款标的融资金额数量的上限");
+		}
+		BorrowerTender borrowerTender = new BorrowerTender();
+		borrowerTender.setUserInfo(userInfo);
+		borrowerTender.setAmount(amount);
+		borrowerTender.setBorrowerInfo(borrowerInfo);
+		
+		this.borrowerTenderRepository.save(borrowerTender);
+	}
+
+	@Override
+	public void tenderBorrowerResponse() {
+		
 	}
 
 }
