@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title,links,scripts)">
+<meta charset="UTF-8">
+<title th:replace="${title}">Insert title here</title>
+<link rel="stylesheet" type="text/css" href="" th:href="@{/webjars/bootstrap/css/bootstrap.css}">
+<link rel="stylesheet" type="text/css" href="" th:href="@{/webjars/font-awesome/css/font-awesome.css}">
+<link rel="stylesheet" type="text/css" media="all" href="" th:href="@{/css/AdminLTE.css}">
+<link rel="stylesheet" type="text/css" href="" th:href="@{/css/skins/_all-skins.min.css}">
+
+<th:block th:replace="${links}"/>
+
+<script src="" th:src="@{/webjars/jquery/dist/jquery.js}"></script>
+<script src="" th:src="@{/webjars/bootstrap/js/bootstrap.js}"></script>
+<script src="" th:src="@{/js/adminlte.js}"></script>
+
+<script src="webjarsjs" th:src="@{/webjarsjs}"></script>
+<script data-main="js/app" src="" th:src="@{/webjars/requirejs/require.min.js}"></script>
+
+<th:block th:replace="${scripts}"/>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini" th:fragment="wrapper(content)">
+    <div class="wrapper">
+        <header class="main-header" >
+            <a href="" class="logo">
+                <span class="logo-mini"><b>A</b>LT</span>
+                <span class="logo-o"><b>Admin</b>LTE</span>
+            </a>
+            
+            <nav class="navbar mabar-static-top">
+            	<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"><span class="sr-only">Toggle navigation</span></a>
+            	<div class="navbar-custom-menu">
+            	</div>
+            </nav>
+        </header>
+        <aside class="main-sidebar">
+            <section class="sidebar">
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="" th:src="@{/dist/img/user2-160x160.jpg}" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p>Alexander Pierce</p>
+                    <a href=""><i class="fa fa-circle text-success"></i>Online</a>
+                </div>
+            </div>
+            <form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                        <button type="submit" name="search" class="btn btn-flat">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </form>
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class="header">MAIN NAVIGATION</li>
+                <li class="treeview" th:each="sidebarDataList : ${sidebarDataLists}">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span th:utext="${sidebarDataList.name}"></span>
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li th:each="dataItems : ${sidebarDataList.sidebarDataItems}"><a href="#" th:href="@{${dataItems.contentPath}}"><i class="fa fa-circle-o"></i><span th:utext="${dataItems.name}"></span></a></li>
+                    </ul>
+                </li>
+            </ul>
+            </section>
+        </aside>
+        <div class="content-wrapper">
+            <section class="content-header">
+				<h1><span wicket:id="titleName"></span><small>Version 2.0</small>
+				</h1>
+				<ol class="breadcrumb" wicket:id="breadCrumbBar">
+					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+					<li class="active">Dashboard</li>
+				</ol>
+			</section>
+			<section class="content" th:insert="${content}">
+			
+			</section>
+        </div>
+        <footer class="main-footer">
+			<div class="pull-right hidden-xs">
+				<b>Version</b>2.4.0
+			</div>
+			<strong>
+				Copyright © 2014-2016 
+			</strong>
+		</footer>
+    </div>
+</body>
+</html>

@@ -33,7 +33,7 @@ public class IndexControl {
 		logger.info("初始化Basic模块");
 		List<SidebarDataList> sidebarDataLists = CommoneUnit.getSidebarDataLists();
 		SidebarDataList sidebarDataList = new SidebarDataList("fa fa-dashboard","系统管理",20);
-		sidebarDataList.getSidebarDataItems().add(new SidebarDataItem("用户列表",UserInfoPage.class));
+		sidebarDataList.getSidebarDataItems().add(new SidebarDataItem("用户列表","/user/index"));
 		sidebarDataList.getSidebarDataItems().add(new SidebarDataItem("角色管理", RolePage.class));
 		sidebarDataList.getSidebarDataItems().add(new SidebarDataItem("部门管理", SectionPage.class));
 		sidebarDataLists.add(sidebarDataList);

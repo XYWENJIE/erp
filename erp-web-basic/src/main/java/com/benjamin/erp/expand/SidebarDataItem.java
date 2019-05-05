@@ -11,11 +11,18 @@ public class SidebarDataItem implements Serializable{
 		this.name = name;
 		this.pagePath = pagePath;
 	}
+	
+	public SidebarDataItem(String name,String contentPath) {
+		this.name = name;
+		this.contentPath = contentPath;
+	}
 
 
 	private String name;
 	
 	private Class<? extends Page> pagePath;
+	
+	private String contentPath;
 
 	public String getName() {
 		return name;
@@ -31,6 +38,14 @@ public class SidebarDataItem implements Serializable{
 
 	public void setPagePath(Class<? extends Page> pagePath) {
 		this.pagePath = pagePath;
+	}
+
+	public String getContentPath() {
+		return contentPath;
+	}
+
+	public void setContentPath(String contentPath) {
+		this.contentPath = contentPath;
 	}
 
 	
