@@ -1,4 +1,4 @@
-package org.benjamin.erp.test;
+package org.benjamin.erp;
 
 
 import org.apache.wicket.util.tester.FormTester;

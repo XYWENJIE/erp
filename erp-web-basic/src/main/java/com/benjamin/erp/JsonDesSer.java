@@ -1,14 +1,15 @@
 package com.benjamin.erp;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.wicketstuff.rest.contenthandling.IObjectSerialDeserial;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonDesSer implements IObjectSerialDeserial<String>{
 	
-	private Logger logger = LogManager.getLogger();
+	private Logger logger = LoggerFactory.getLogger(getClass());
 	
 	private ObjectMapper objectMapper = new ObjectMapper();
 

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+	<Properties>
+		<Property name="LOG_HOME">${sys:catalina.home}/logs/skb</Property>
+	</Properties>
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d{HH:mm:ss.SSS} [Erp-System] [%t] %-5level %logger{36}.%M:%line - %msg%n" />
+		</Console>
+		<!-- <RollingFile name="trace_appender" immediateFlush="true"
+			filename="${LOG_HOME}/skb.log" filePattern="${LOG_HOME}/app-%d{MM-dd-yyyy}.log.gz">
+			<PatternLayout
+				pattern="%d{HH:mm:ss.SSS} [SkyBridgeCredit] [%t] %-5level %logger{36}.%M:%line - %msg%n" />
+			<Filters>
+				<ThresholdFilter level="INFO"/>
+				<ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL"/>
+			</Filters>
+			<Policies>
+				每个日志文件最大4MB
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100MB" />
+			</Policies>
+		</RollingFile> -->
+	</Appenders>
+	<Loggers>
+		<Logger name="org.hibernate.type" level="TRACE" />
+		<Logger name="org.springframework.webflow" level="info"/>
+		<Logger name="org.hibernate.tool.hbm2ddl" level="TRACE" />
+		<Logger name="org.hibernate.type.descriptor.sql.BasicBinder"
+			level="TRACE" />
+			<Logger name="org.springframework" level="INFO"/>
+		<Logger name="org.hibernate.SQL" level="debug" />
+		<Logger name="org.springframework.jdbc.core.JdbcTemplate"
+			level="DEBUG" />
+		<Logger name="org.springframework.jdbc.datasource.init" level="debug" />
+
+		<Logger name="com.skybrigde.security" level="trace" />
+		<Logger name="org.springframework.security" level="info" />
+		<Logger name="com.mysql" level="DEBUG" />
+		<Logger name="com.skybrigde.controller" level="DEBUG"/>
+		<Logger name="com.skybrigde.service" level="DEBUG"/>
+		<Logger name="com.skybrigde.repositories" level="DEBUG"/>
+		<Logger name="org.hibernate.type.BasicTypeRegistry" level="INFO"/>
+		<Logger name="org.hibernate.tool.hbm2ddl.TableMetadata" level="ERROR"/>
+		<Logger name="org.activiti.engine.impl" level="DEBUG"/>
+		<Logger name="org.apache.wicket.protocol.http.CsrfPreventionRequestCycleListener" level="INFO"/>
+		<Logger name="org.apache.wicket" level="INFO"/>
+		<Logger name="org.apache.shiro" level="DEBUG"/>
+		<Root level="DEBUG">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="trace_appender" />
+		</Root>
+	</Loggers>
+</Configuration>

@@ -1,6 +1,5 @@
 package com.benjamin.erp.expand;
 
-import org.apache.wicket.devutils.debugbar.DebugBar;
 import org.apache.wicket.extensions.breadcrumb.BreadCrumbBar;
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
@@ -52,8 +51,6 @@ public abstract class BasicWebPage extends WebPage {
 		add(new Label("titleName",getTitle()));
 		
 		add(breadCrumbBar);
-		
-		add(new DebugBar("debugBar"));
 	}
 	
 	public abstract Model<String> getTitle();

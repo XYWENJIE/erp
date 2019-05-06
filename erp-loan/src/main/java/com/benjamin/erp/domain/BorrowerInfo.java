@@ -1,6 +1,9 @@
 package com.benjamin.erp.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -42,6 +45,7 @@ public class BorrowerInfo implements Serializable {
         this.id = id;
     }
 
+    @NotBlank
     public String getName() {
         return name;
     }
@@ -50,6 +54,7 @@ public class BorrowerInfo implements Serializable {
         this.name = name;
     }
 
+    @NotNull
 	public BigDecimal getTotalLoanAmount() {
 		return totalLoanAmount;
 	}

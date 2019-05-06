@@ -1,7 +1,6 @@
 package com.benjamin.erp;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -11,6 +10,8 @@ import org.apache.shiro.authc.pam.UnsupportedTokenException;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.benjamin.erp.domain.UserInfo;
@@ -18,7 +19,7 @@ import com.benjamin.erp.repository.UserInfoRepository;
 
 public class Realm extends AuthorizingRealm {
 	
-	private Logger logger = LogManager.getLogger();
+	private Logger logger = LoggerFactory.getLogger(getClass());
 	
 	@Autowired
 	private UserInfoRepository loginInfoRepository;

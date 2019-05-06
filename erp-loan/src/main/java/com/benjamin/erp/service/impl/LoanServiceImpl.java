@@ -2,14 +2,17 @@ package com.benjamin.erp.service.impl;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
+
 import org.activiti.engine.IdentityService;
+import org.activiti.engine.RepositoryService;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.delegate.DelegateExecution;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.apache.wicket.spring.injection.annot.SpringBean;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +23,13 @@ import com.benjamin.erp.domain.BorrowerInfo;
 import com.benjamin.erp.domain.BorrowerTender;
 import com.benjamin.erp.domain.LoanCapital;
 import com.benjamin.erp.domain.BorrowerInfo.Status;
+import com.benjamin.erp.expand.CommoneUnit;
+import com.benjamin.erp.expand.SidebarDataItem;
+import com.benjamin.erp.expand.SidebarDataList;
+import com.benjamin.erp.page.AuditLoanPage;
+import com.benjamin.erp.page.BorrowIndexPage;
+import com.benjamin.erp.page.ReleaseBorrowerPage;
+import com.benjamin.erp.page.loan.capital.RechargeListPage;
 import com.benjamin.erp.domain.UserInfo;
 import com.benjamin.erp.repository.BorrowerInfoRepository;
 import com.benjamin.erp.repository.BorrowerTenderRepository;
@@ -32,10 +42,13 @@ import com.benjamin.erp.service.LoanService;
 @Transactional
 public class LoanServiceImpl implements LoanService {
 	
-	private Log logger = LogFactory.getLog(this.getClass());
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired
 	private RuntimeService runtimeService;
+	
+	@Autowired
+	private RepositoryService repositoryService;
 	
 	@Autowired
 	private IdentityService identityService;
@@ -54,6 +67,35 @@ public class LoanServiceImpl implements LoanService {
 	
 	@Autowired
 	private AuditLoanTask auditLoanTask;
+	
+	@PostConstruct
+	@Override
+	public void init() {
+		logger.info("初始化Loan模块.....");
+		logger.info("初始化导航信息列表");
+		SidebarDataList sidebarDataList = new SidebarDataList("","借款管理");
+        SidebarDataItem sidebarDataItem = new SidebarDataItem("发布借款","/borrower/release");
+        sidebarDataList.getSidebarDataItems().add(sidebarDataItem);
+        
+        sidebarDataItem = new SidebarDataItem("审核借款", AuditLoanPage.class);
+        sidebarDataList.getSidebarDataItems().add(sidebarDataItem);
+        
+        sidebarDataItem = new SidebarDataItem("借款标列表", BorrowIndexPage.class);
+        sidebarDataList.getSidebarDataItems().add(sidebarDataItem);
+        
+        CommoneUnit.getSidebarDataLists().add(sidebarDataList);
+        
+        sidebarDataList = new SidebarDataList("", "借款资产管理");
+        sidebarDataList.getSidebarDataItems().add(new SidebarDataItem("充值列表", RechargeListPage.class));
+        
+        logger.info("初始化JBPM工作流");
+        
+        List<String> list = this.repositoryService.getDeploymentResourceNames("flow/auditLoan.bpmn");
+        logger.debug("查询到的List数量:{}",list.size());
+        if(list.isEmpty()) {
+        	this.repositoryService.createDeployment().addClasspathResource("flow/auditLoan.bpmn").deploy();	
+        }
+	}
 
 	@Override
 	public void submitAuditLoan(BorrowerInfo borrowerInfo,String username) {

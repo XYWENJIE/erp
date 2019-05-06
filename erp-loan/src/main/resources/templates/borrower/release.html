@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head(~{this :: title},~{},~{})">
+<meta charset="UTF-8">
+<title>发布借款标</title>
+</head>
+<body>
+	<div th:replace="layout :: wrapper(~{:: #content})">
+    	<div id="content">
+			<div class="box">
+            <form th:action="@{/borrower/release}" th:object="${borrowerInfo}" method="post">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group" th:class="${#fields.hasErrors('name')} ? 'form-group has-error'">
+                                <label>名称:</label>
+                                <div>
+                                    <input type="text" class="form-control" th:field="*{name}">
+                                    <span class="help-block"  th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group" th:class="${#fields.hasErrors('totalLoanAmount')} ? 'form-group has-error'">
+                                <label>借款金额:</label>
+                                <div>
+                                    <input type="text" class="form-control" th:field="*{totalLoanAmount}">
+                                    <span class="help-block" th:if="${#fields.hasErrors('totalLoanAmount')}" th:errors="*{totalLoanAmount}"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>简介</label>
+                        <div>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>年华利率:</label>
+                        <div>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>所在地:</label>
+                        <div>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>借款期限:</label>
+                        <div>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>借款用途:</label>
+                        <div>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">提交</button>
+                </div>
+            </form>
+        </div>
+		</div>
+    </div>
+</body>
+</html>

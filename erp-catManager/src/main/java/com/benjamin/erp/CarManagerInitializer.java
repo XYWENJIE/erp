@@ -2,8 +2,6 @@ package com.benjamin.erp;
 
 import java.util.List;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.apache.wicket.Application;
 import org.apache.wicket.IInitializer;
 
@@ -11,12 +9,13 @@ import com.benjamin.erp.expand.CommoneUnit;
 import com.benjamin.erp.expand.SidebarDataItem;
 import com.benjamin.erp.expand.SidebarDataList;
 import com.benjamin.erp.page.DriverLicensePage;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class CarManagerInitializer implements IInitializer {
 	
-	private Logger logger = LogManager.getLogger();
+	private Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Override
 	public void init(Application application) {

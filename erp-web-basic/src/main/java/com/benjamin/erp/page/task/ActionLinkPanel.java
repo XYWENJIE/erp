@@ -2,8 +2,6 @@ package com.benjamin.erp.page.task;
 
 import org.activiti.engine.TaskService;
 import org.activiti.engine.impl.persistence.entity.TaskEntity;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.link.Link;
@@ -11,12 +9,14 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import com.benjamin.erp.application.ErpSigInSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ActionLinkPanel extends Panel {
 	
 	private static final long serialVersionUID = 1L;
 
-	private Logger logger = LogManager.getLogger();
+	private Logger logger = LoggerFactory.getLogger(getClass());
 	
 	@SpringBean
 	private TaskService taskService;

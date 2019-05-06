@@ -12,17 +12,17 @@ import com.benjamin.erp.page.loan.capital.RechargeListPage;
 import java.util.List;
 import org.activiti.engine.RepositoryService;
 import org.activiti.spring.SpringProcessEngineConfiguration;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.apache.wicket.Application;
 import org.apache.wicket.IInitializer;
 import org.apache.wicket.spring.injection.annot.SpringBean;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.wicketstuff.rest.utils.mounting.PackageScanner;
 
 public class LoanInitializer implements IInitializer {
 
-    private Logger logger = LogManager.getLogger();
+    private Logger logger = LoggerFactory.getLogger(getClass());
     
     @SpringBean
     private RepositoryService repositoryService;
@@ -31,7 +31,7 @@ public class LoanInitializer implements IInitializer {
     public void init(Application application) {
         logger.info("初始化Loan模块.....");
         //WebApplication webApplication = (WebApplication)application;
-        PackageScanner.scanPackage("com.benjamin.erp.service");
+        //PackageScanner.scanPackage("com.benjamin.erp.service");
         ErpWebApplication erpWebApplication = (ErpWebApplication)application;
         ApplicationContext applicationContext = erpWebApplication.getApplicationContext();
         this.repositoryService = applicationContext.getBean("repositoryService",RepositoryService.class);

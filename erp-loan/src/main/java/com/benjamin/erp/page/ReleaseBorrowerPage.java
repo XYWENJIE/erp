@@ -5,14 +5,14 @@ import com.benjamin.erp.domain.BorrowerInfo;
 import com.benjamin.erp.expand.BasicWebPage;
 import com.benjamin.erp.service.LoanService;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.RequiredTextField;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ReleaseBorrowerPage extends BasicWebPage {
 
@@ -21,7 +21,7 @@ public class ReleaseBorrowerPage extends BasicWebPage {
 	@SpringBean
 	private LoanService loanService;
 	
-	private Logger logger = LogManager.getLogger();
+	private Logger logger = LoggerFactory.getLogger(getClass());
 	
 	
 	BorrowerInfo borrowerInfo = new BorrowerInfo();

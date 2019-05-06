@@ -8,6 +8,8 @@ import com.benjamin.erp.domain.BorrowerInfo;
 
 public interface LoanService {
 	
+	public void init();
+	
 	void submitAuditLoan(BorrowerInfo borrowerInfo,String username);
 	
 	void auditLoan(DelegateExecution execution);

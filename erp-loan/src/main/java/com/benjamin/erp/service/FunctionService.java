@@ -2,8 +2,6 @@ package com.benjamin.erp.service;
 
 import java.math.BigDecimal;
 
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
 
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.slf4j.Logger;
@@ -23,8 +21,7 @@ public class FunctionService {
     private LoanService loanService;
     
 
-    @POST
-    @Path("requestTenderBorrower")
+
     public int tenderBorrower(String username, String password, Integer borrowerId, BigDecimal amount) {
         logger.info("接收用户请求服务校验请求方是否合规");
         // TODO 校验用户和密码

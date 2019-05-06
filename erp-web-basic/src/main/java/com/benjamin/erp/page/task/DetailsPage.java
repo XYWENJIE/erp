@@ -19,8 +19,6 @@ import org.activiti.engine.impl.persistence.entity.CommentEntity;
 import org.activiti.engine.impl.persistence.entity.TaskEntity;
 import org.activiti.engine.task.Comment;
 import org.activiti.engine.task.Task;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.WicketRuntimeException;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -36,6 +34,8 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.spring.injection.annot.SpringBean;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.wicketstuff.annotation.mount.MountPath;
 
 @MountPath("task/details/#{taskId}")
@@ -43,7 +43,7 @@ public class DetailsPage extends BasicWebPage {
 
     private static final long serialVersionUID = 1L;
 
-    private Logger logger = LogManager.getLogger();
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     private TaskEntity taskEntity;
 
